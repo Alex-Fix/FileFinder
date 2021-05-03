@@ -2,8 +2,9 @@
 #include <string>
 #include <list>
 #include <fstream>
-#include <regex>
+#include <filesystem>
 using namespace std;
+namespace fs = std::filesystem;
 
 class FileFinder {
 	string path, content;

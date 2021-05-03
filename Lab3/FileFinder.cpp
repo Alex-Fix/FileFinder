@@ -1,7 +1,4 @@
 #include "FileFinder.h"
-#include <iostream>
-#include <filesystem>
-namespace fs = std::filesystem;
 
 bool FileFinder::SetPath(string path) {
 	if (fs::exists(path) && fs::is_directory(fs::status(path)))
@@ -77,20 +74,12 @@ bool FileFinder::CheckFileContent(string filePath) {
 			anySymbPos.pop_front();
 		}
 
-		if (fileContent[i] == currContent[j]) {
+		if (fileContent[i] == currContent[j] || currContent[j] == '*') {
 			isAny = false;
 			j++;
 		}
-		else if (currContent[j] == '*') {
-			isAny = false;
-			j++;
-		}
-		else if (isAny) {
-			
-		}
-		else {
-			j = 0;
-		}
+		else if (isAny) continue;
+		else j = 0;
 	}
 
 	return isMatch;
