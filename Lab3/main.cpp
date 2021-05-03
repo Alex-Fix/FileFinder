@@ -18,9 +18,9 @@ int main() {
 		if (command._Equal("q"))
 			break;
 		else if (command._Equal("p")) {
-			cout << "Enter path: ";
-			getline(cin, path);
-			path = "C:\lab3";
+			/*cout << "Enter path: ";
+			getline(cin, path);*/
+			path = "C:\\lab3";
 			if (!fileFinder.SetPath(path)) cout << "Incorrect path!!!" << endl;
 		}
 		else if (command._Equal("t"))
